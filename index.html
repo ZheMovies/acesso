@@ -60,9 +60,9 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false">
     <div class="container">
-        <p>Se é sua primeira vez aqui, precisa acessar nosso grupo primeiro:</p>
+        <p>Se é sua primeira vez aqui, precisa acessar no grupo primeiro</p>
         <button class="button" onclick="acessarGrupo()">Acessar</button>
         
         <p>Se já faz parte do grupo:</p>
@@ -77,6 +77,13 @@
         function avancar() {
             window.location.href = "#"; // Coloque o link de avanço aqui
         }
+        
+        // Bloquear teclas de inspeção
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I") || (event.ctrlKey && event.shiftKey && event.key === "J") || (event.ctrlKey && event.key === "U")) {
+                event.preventDefault();
+            }
+        });
     </script>
 </body>
 </html>
